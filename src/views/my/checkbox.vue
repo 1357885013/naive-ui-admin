@@ -1,0 +1,92 @@
+<template>
+  <div class="checkboxes">
+
+    <label class="flipBox">
+      <input type="checkbox"/>
+      <span>Checkbox 1</span>
+      <div class="flipBox_boxOuter">
+        <div class="flipBox_box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="flipBox_shadow"></div>
+    </label>
+
+    <label class="flipBox">
+      <input type="checkbox"/>
+      <span>Checkbox 2</span>
+      <div class="flipBox_boxOuter">
+        <div class="flipBox_box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="flipBox_shadow"></div>
+    </label>
+
+    <label class="flipBox">
+      <input type="checkbox"/>
+      <span>Checkbox 3</span>
+      <div class="flipBox_boxOuter">
+        <div class="flipBox_box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="flipBox_shadow"></div>
+    </label>
+
+    <div class="flipBox">
+      <input type="checkbox" disabled/>
+      <span>Disabled checkbox</span>
+      <div class="flipBox_boxOuter">
+        <div class="flipBox_box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="flipBox_shadow"></div>
+    </div>
+
+    <label class="flipBox">
+      <input type="checkbox"/>
+      <span>Checkbox 4</span>
+      <div class="flipBox_boxOuter">
+        <div class="flipBox_box">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+      <div class="flipBox_shadow"></div>
+    </label>
+
+  </div>
+</template>
+<script lang="ts" setup>
+import {useRouter} from 'vue-router';
+
+const router = useRouter();
+</script>
+<style lang="less" scoped>
+</style>

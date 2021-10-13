@@ -1,16 +1,17 @@
-import type { UserConfig, ConfigEnv } from 'vite';
-import { loadEnv } from 'vite';
-import { resolve } from 'path';
-import { wrapperEnv } from './build/utils';
-import { createVitePlugins } from './build/vite/plugin';
-import { OUTPUT_DIR } from './build/constant';
-import { createProxy } from './build/vite/proxy';
+import type {UserConfig, ConfigEnv} from 'vite';
+import {loadEnv} from 'vite';
+import {resolve} from 'path';
+import {wrapperEnv} from './build/utils';
+import {createVitePlugins} from './build/vite/plugin';
+import {OUTPUT_DIR} from './build/constant';
+import {createProxy} from './build/vite/proxy';
 import pkg from './package.json';
-import { format } from 'date-fns';
-const { dependencies, devDependencies, name, version } = pkg;
+import {format} from 'date-fns';
+
+const {dependencies, devDependencies, name, version} = pkg;
 
 const __APP_INFO__ = {
-  pkg: { dependencies, devDependencies, name, version },
+  pkg: {dependencies, devDependencies, name, version},
   lastBuildTime: format(new Date(), 'yyyy-MM-dd HH:mm:ss'),
 };
 
@@ -18,11 +19,11 @@ function pathResolve(dir: string) {
   return resolve(process.cwd(), '.', dir);
 }
 
-export default ({ command, mode }: ConfigEnv): UserConfig => {
+export default ({command, mode}: ConfigEnv): UserConfig => {
   const root = process.cwd();
   const env = loadEnv(mode, root);
   const viteEnv = wrapperEnv(env);
-  const { VITE_PUBLIC_PATH, VITE_DROP_CONSOLE, VITE_PORT, VITE_GLOB_PROD_MOCK, VITE_PROXY } =
+  const {VITE_PUBLIC_PATH, VITE_DROP_CONSOLE, VITE_PORT, VITE_GLOB_PROD_MOCK, VITE_PROXY} =
     viteEnv;
   const prodMock = VITE_GLOB_PROD_MOCK;
   const isBuild = command === 'build';
