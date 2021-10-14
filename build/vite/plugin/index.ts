@@ -1,14 +1,15 @@
-import type { Plugin } from 'vite';
+import type {Plugin} from 'vite';
 
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
 
-import { configHtmlPlugin } from './html';
-import { configMockPlugin } from './mock';
-import { configCompressPlugin } from './compress';
+import {configHtmlPlugin} from './html';
+import {configMockPlugin} from './mock';
+import {configCompressPlugin} from './compress';
+import vuetify from '@vuetify/vite-plugin';
 
 export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean, prodMock) {
-  const { VITE_USE_MOCK, VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE } = viteEnv;
+  const {VITE_USE_MOCK, VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE} = viteEnv;
 
   const vitePlugins: (Plugin | Plugin[])[] = [
     // have to
@@ -29,6 +30,6 @@ export function createVitePlugins(viteEnv: ViteEnv, isBuild: boolean, prodMock) 
       configCompressPlugin(VITE_BUILD_COMPRESS, VITE_BUILD_COMPRESS_DELETE_ORIGIN_FILE)
     );
   }
-
+  vitePlugins.push(vuetify({autoImport: true, styles: 'expose'}));
   return vitePlugins;
 }

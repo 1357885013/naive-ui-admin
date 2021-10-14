@@ -7,13 +7,17 @@ import MakeitCaptcha from 'makeit-captcha';
 import 'makeit-captcha/dist/captcha.min.css';
 import { setupNaive, setupDirectives } from '@/plugins';
 import { AppProvider } from '@/components/Application';
+import vuetify from './plugins/vuetify'
+import { loadFonts } from './plugins/webfontloader'
 
 async function bootstrap() {
+  loadFonts();
   const appProvider = createApp(AppProvider);
 
   const app = createApp(App);
 
   app.use(MakeitCaptcha);
+  app.use(vuetify);
 
   // 注册全局常用的 naive-ui 组件
   setupNaive(app);

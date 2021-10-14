@@ -46,6 +46,7 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
     plugins: createVitePlugins(viteEnv, isBuild, prodMock),
     define: {
       __APP_INFO__: JSON.stringify(__APP_INFO__),
+      'process.env': {},
     },
     css: {
       preprocessorOptions: {
@@ -54,6 +55,9 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
           javascriptEnabled: true,
           additionalData: `@import "src/styles/var.less";`,
         },
+        scss: {
+          javascriptEnabled: true,
+        }
       },
     },
     server: {

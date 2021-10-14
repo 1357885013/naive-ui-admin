@@ -1,30 +1,31 @@
 {
   "name": "naive-ui-admin",
   "version": "1.5.5",
+  "private": true,
   "author": {
     "name": "Ahjung",
     "email": "735878602@qq.com",
     "url": "https://github.com/jekip/naive-ui-admin"
   },
-  "private": true,
   "scripts": {
-    "bootstrap": "yarn install",
-    "serve": "npm run dev",
-    "dev": "vite",
-    "build": "vite build && esno ./build/script/postBuild.ts",
-    "build:no-cache": "yarn clean:cache && npm run build",
-    "report": "cross-env REPORT=true npm run build",
-    "preview": "vite preview",
-    "build typecheck": "vuedx-typecheck . && vite build",
+    "serve": "vite preview",
+    "build": "vite build",
     "deploy": "gh-pages -d dist",
+    "bootstrap": "yarn install",
+    "build typecheck": "vuedx-typecheck . && vite build",
+    "build:no-cache": "yarn clean:cache && npm run build",
+    "dev": "vite",
     "lint:eslint": "eslint \"{src,mock}/**/*.{vue,ts,tsx}\" --fix",
-    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
-    "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
     "lint:lint-staged": "lint-staged -c ./.husky/lintstagedrc.js",
+    "lint:prettier": "prettier --write --loglevel warn \"src/**/*.{js,json,tsx,css,less,scss,vue,html,md}\"",
     "lint:pretty": "pretty-quick --staged",
+    "lint:stylelint": "stylelint --fix \"**/*.{vue,less,postcss,css,scss}\" --cache --cache-location node_modules/.cache/stylelint/",
+    "preview": "vite preview",
+    "report": "cross-env REPORT=true npm run build",
     "test prod gzip": "http-server dist --cors --gzip -c-1"
   },
   "dependencies": {
+    "@mdi/font": "5.9.55",
     "@vicons/antd": "^0.10.0",
     "@vicons/ionicons5": "^0.10.0",
     "@vueup/vue-quill": "^1.0.0-beta.7",
@@ -42,11 +43,14 @@
     "naive-ui": "^2.19.1",
     "pinia": "^2.0.0-rc.4",
     "qs": "^6.10.1",
+    "roboto-fontface": "*",
     "vfonts": "^0.1.0",
     "vue": "^3.2.16",
     "vue-router": "^4.0.11",
     "vue-types": "^4.1.0",
-    "vuedraggable": "^4.0.3"
+    "vuedraggable": "^4.0.3",
+    "vuetify": "^3.0.0-alpha.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
@@ -57,8 +61,10 @@
     "@typescript-eslint/parser": "^4.31.2",
     "@vitejs/plugin-vue": "^1.9.1",
     "@vitejs/plugin-vue-jsx": "^1.1.8",
+    "@vue/cli-service": "~5.0.0-beta.3",
     "@vue/compiler-sfc": "^3.2.16",
     "@vue/eslint-config-typescript": "^7.0.0",
+    "@vuetify/vite-plugin": "^1.0.0-alpha.3",
     "autoprefixer": "^10.3.1",
     "commitizen": "^4.2.4",
     "core-js": "^3.14.0",
@@ -80,6 +86,8 @@
     "prettier": "^2.3.1",
     "pretty-quick": "^3.1.0",
     "rimraf": "^3.0.2",
+    "sass": "^1.43.2",
+    "sass-loader": "^10.0.0",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
     "stylelint-config-standard": "^22.0.0",
@@ -92,16 +100,22 @@
     "vite-plugin-html": "^2.0.7",
     "vite-plugin-mock": "^2.9.3",
     "vite-plugin-style-import": "^1.0.1",
-    "vue-eslint-parser": "^7.11.0"
+    "vue-cli-plugin-vuetify": "~2.4.3",
+    "vue-eslint-parser": "^7.11.0",
+    "vuetify-loader": "^2.0.0-alpha.0"
   },
-  "lint-staged": {
-    "*.{vue,js,ts,tsx}": "eslint --fix"
+  "bugs": {
+    "url": "https://github.com/jekip/naive-ui-admin/issues"
   },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-customizable"
     }
   },
+  "engines": {
+    "node": "^12 || >=14"
+  },
+  "homepage": "https://github.com/jekip/naive-ui-admin",
   "keywords": [
     "vue",
     "naive-ui",
@@ -112,16 +126,12 @@
     "admin",
     "typescript"
   ],
+  "license": "MIT",
+  "lint-staged": {
+    "*.{vue,js,ts,tsx}": "eslint --fix"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jekip/naive-ui-admin.git"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/jekip/naive-ui-admin/issues"
-  },
-  "homepage": "https://github.com/jekip/naive-ui-admin",
-  "engines": {
-    "node": "^12 || >=14"
   }
 }
